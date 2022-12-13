@@ -4,8 +4,7 @@ using namespace std;
 
 List::List()
 {
-	P_head = nullptr;
-	P_tail = nullptr;
+
 	size = 0;
 }
 
@@ -18,30 +17,20 @@ void List::Push_Student(Student* P_student)
 {
 	Node* P_node = new Node;
 	P_node->Set_Student(P_student);
-	/*
-	* Can xem xet lai doan nay
-	* P_Node khoi tao da co ham Node() roi thi co can set nullptr ko?
-	*/
+
 	P_node->Set_P_next(nullptr);
 	P_node->Set_P_previous(nullptr);
 	if (size == 0)
 	{
-		P_head->Set_P_next(P_node);
-		P_tail->Set_P_previous(P_node);
+		P_head = P_node;
+		P_tail = P_node;
 		size++;
 	}
 	else
 	{
-		Node* P_temp = new Node;
-		P_temp->Set_P_next(P_head);
-
-		while (P_temp->Get_P_next() != nullptr)
-		{
-			P_temp->Set_P_next(P_temp->Get_P_next());
-		}
-
-		P_temp->Set_P_next(P_node);
-		P_tail->Set_P_previous(P_node);
+		P_tail->Set_P_next(P_node);
+		P_node->Set_P_previous(P_tail);
+		P_tail = P_node;
 		size++;
 	}
 }

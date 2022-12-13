@@ -4,8 +4,8 @@ using namespace std;
 
 Node::Node()
 {
-	P_previous = nullptr;
-	P_next = nullptr;
+
+	student = new Student;
 }
 
 Node::Node(Student* student, Node* P_previous, Node* P_next)
