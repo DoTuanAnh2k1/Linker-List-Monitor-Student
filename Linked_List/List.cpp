@@ -293,6 +293,7 @@ void List::Show()
 		while (P_temp->Get_P_next() != nullptr)
 		{
 			P_temp->Get_Student()->Show();
+			P_temp->Set_P_next(P_temp->Get_P_next());
 		}
 	}
 }
